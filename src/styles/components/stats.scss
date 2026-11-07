@@ -1,0 +1,48 @@
+@use '../helpers' as *;
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-250;
+
+  @include tablet {
+    justify-content: start;
+    gap: $spacing-300;
+  }
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-100;
+
+  @include tablet {
+    flex-direction: row;
+    gap: $spacing-150;
+  }
+
+  &:not(:last-child) {
+    padding-right: $spacing-250;
+    border-right: 1px solid $neutral-700;
+
+    @include tablet {
+      padding-right: $spacing-300;
+    }
+  }
+}
+
+.stats__label {
+  @include text-preset-3-mobile;
+
+  color: $neutral-400;
+
+  @include tablet {
+    @include text-preset-3;
+  }
+}
+
+.stats__value {
+  @include text-preset-2;
+}

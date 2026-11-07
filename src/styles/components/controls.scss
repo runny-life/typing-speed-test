@@ -1,0 +1,18 @@
+@use '../helpers' as *;
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-200;
+  padding-bottom: $spacing-200;
+  border-bottom: 1px solid $neutral-700;
+
+  @include tablet {
+    gap: $spacing-250;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

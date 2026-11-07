@@ -50,78 +50,93 @@
       <h1 class="sr-only">Typing Speed Test</h1>
 
       <section
-        class="stats"
-        aria-label="Test statistics"
-      >
-        <div class="stats__item">
-          <span class="stats__label">WPM:</span>
-          <span
-            class="stats__value"
-            id="wpm"
-          >0</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__label">Accuracy:</span>
-          <span
-            class="stats__value"
-            id="accuracy"
-          >100%</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__label">Time:</span>
-          <span
-            class="stats__value"
-            id="time"
-          >1:00</span>
-        </div>
-      </section>
-
-      <section
         class="controls"
         aria-label="Test controls"
       >
-        <div class="controls__group">
-          <span class="controls__label">Difficulty:</span>
-          <div
-            class="toggle"
-            role="group"
-            aria-label="Difficulty level"
-          >
-            <button
-              class="toggle__btn toggle__btn--active"
-              data-difficulty="easy"
-            >Easy
-            </button>
-            <button
-              class="toggle__btn"
-              data-difficulty="medium"
-            >Medium
-            </button>
-            <button
-              class="toggle__btn"
-              data-difficulty="hard"
-            >Hard
-            </button>
+        <div
+          class="stats"
+        >
+          <div class="stats__item">
+            <span class="stats__label">WPM:</span>
+            <span
+              class="stats__value"
+              id="wpm"
+            >0</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__label">Accuracy:</span>
+            <span
+              class="stats__value"
+              id="accuracy"
+            >100%</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__label">Time:</span>
+            <span
+              class="stats__value"
+              id="time"
+            >1:00</span>
           </div>
         </div>
 
-        <div class="controls__group">
-          <span class="controls__label">Mode:</span>
-          <div
-            class="toggle"
-            role="group"
-            aria-label="Test mode"
-          >
-            <button
-              class="toggle__btn toggle__btn--active"
-              data-mode="timed"
-            >Timed (60s)
-            </button>
-            <button
-              class="toggle__btn"
-              data-mode="passage"
-            >Passage
-            </button>
+        <div
+          class="settings"
+        >
+          <div class="settings__group">
+            <span class="settings__label">Difficulty:</span>
+            <div
+              class="toggle"
+              role="group"
+              aria-label="Difficulty level"
+            >
+              <button
+                class="toggle__btn toggle__btn--active"
+                data-difficulty="easy"
+              >Easy
+              </button>
+              <button
+                class="toggle__btn"
+                data-difficulty="medium"
+              >Medium
+              </button>
+              <button
+                class="toggle__btn"
+                data-difficulty="hard"
+              >Hard
+              </button>
+            </div>
+            <select
+              class="difficulty-select"
+              aria-label="Difficulty level"
+            >
+              <option
+                value="easy"
+                selected
+              >Easy
+              </option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+
+          <div class="controls__group">
+            <span class="controls__label">Mode:</span>
+            <div
+              class="toggle"
+              role="group"
+              aria-label="Test mode"
+            >
+              <button
+                class="toggle__btn toggle__btn--active"
+                data-mode="timed"
+              >Timed (60s)
+              </button>
+              <button
+                class="toggle__btn"
+                data-mode="passage"
+              >Passage
+              </button>
+            </div>
           </div>
         </div>
       </section>
