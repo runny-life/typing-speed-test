@@ -1,0 +1,52 @@
+@use '../helpers' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: rem(32px);
+  height: rem(32px);
+
+  @include tablet {
+    width: rem(266px);
+    height: rem(39px);
+  }
+}
+
+.header__logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header__personal-best {
+  display: flex;
+  gap: rem(10px);
+}
+
+.header__personal-best-image {
+  width: rem(18px);
+  height: rem(16px);
+
+  @include tablet {
+    width: rem(20px);
+    height: rem(18px);
+  }
+}
+
+.header__personal-best-text {
+  @include text-preset-3-mobile;
+
+  color: $neutral-400;
+
+  @include tablet {
+    @include text-preset-4;
+  }
+
+  & span {
+    color: $neutral-0;
+  }
+}

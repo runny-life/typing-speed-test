@@ -8,6 +8,8 @@ body {
 }
 
 .container {
+  display: grid;
+  gap: $spacing-400;
   min-height: 100dbh;
   max-width: calc($container-width + $container-padding-x * 2);
   padding-top: rem(16px);
@@ -23,4 +25,8 @@ body {
   @include desktop {
     padding-block: rem(32px);
   }
+}
+
+.sr-only {
+  @include visually-hidden;
 }
