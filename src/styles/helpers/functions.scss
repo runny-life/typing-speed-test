@@ -1,0 +1,63 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+
+$base-font-size: 16px !default;
+$fluid-min-vw: 375px !default;
+$fluid-max-vw: 1440px !default;
+
+@function rem($px-value, $base: $base-font-size) {
+  @if math.unit($px-value) == 'px' {
+    @return math.div($px-value, $base) * 1rem;
+  } @else if math.unit($px-value) == '' {
+    @return math.div($px-value * 1px, $base) * 1rem;
+  } @else {
+    @error "px-to-rem: expected a value in px or without units, received: #{$px-value}";
+  }
+}
+
+@function strip-unit($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+@function fluid($min-size, $max-size, $min-vw: $fluid-min-vw, $max-vw: $fluid-max-vw) {
+  $min-size-px: $min-size;
+  $max-size-px: $max-size;
+  $min-vw-px: $min-vw;
+  $max-vw-px: $max-vw;
+
+  @if math.is-unitless($min-size) {
+    $min-size-px: $min-size * 1px;
+  }
+  @if math.is-unitless($max-size) {
+    $max-size-px: $max-size * 1px;
+  }
+  @if math.is-unitless($min-vw) {
+    $min-vw-px: $min-vw * 1px;
+  }
+  @if math.is-unitless($max-vw) {
+    $max-vw-px: $max-vw * 1px;
+  }
+
+  @if math.unit($min-size-px) != 'px' or math.unit($max-size-px) != 'px' {
+    @error "fluid: Dimensions must be in px or unitless. Received: #{$min-size}, #{$max-size}";
+  }
+
+  @if $min-size-px == $max-size-px {
+    @return math.div($min-size-px, $base-font-size) * 1rem;
+  }
+
+  $slope: math.div($max-size-px - $min-size-px, $max-vw-px - $min-vw-px);
+  $intercept-px: $min-size-px - $slope * $min-vw-px;
+
+  $intercept-rem: math.div($intercept-px, $base-font-size) * 1rem;
+  $slope-vw: strip-unit($slope) * 100vw;
+
+  $min-rem: math.div($min-size-px, $base-font-size) * 1rem;
+  $max-rem: math.div($max-size-px, $base-font-size) * 1rem;
+
+  @return clamp(#{$min-rem}, calc(#{$intercept-rem} + #{$slope-vw}), #{$max-rem});
+}

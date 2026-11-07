@@ -1,0 +1,55 @@
+@use 'functions' as *;
+
+/*Colors*/
+$neutral-0: #ffffff;
+$neutral-400: #949497;
+$neutral-500: #717178;
+$neutral-800: #262626;
+$neutral-900: #121212;
+$blue-400: #4ca6ff;
+$blue-600: #177dff;
+$red-500: #d64d5b;
+$green-500: #4dd67b;
+$yellow-400: #f4dc73;
+
+/*Fonts*/
+$font-family-base: 'Sora', sans-serif;
+
+/*Container*/
+$container-width: rem(1216px);
+$container-padding-x: fluid(16px, 32px);
+
+/*Spacing*/
+$spacing-025: rem(2px);
+$spacing-050: rem(4px);
+$spacing-075: rem(6px);
+$spacing-100: rem(8px);
+$spacing-125: rem(10px);
+$spacing-150: rem(12px);
+$spacing-200: rem(16px);
+$spacing-250: rem(20px);
+$spacing-300: rem(24px);
+$spacing-400: rem(32px);
+$spacing-500: rem(40px);
+$spacing-600: rem(48px);
+$spacing-800: rem(64px);
+$spacing-1000: rem(80px);
+$spacing-1200: rem(96px);
+$spacing-1400: rem(112px);
+$spacing-1600: rem(128px);
+$spacing-1800: rem(140px);
+
+/*Radius*/
+$radius-4: 4px;
+$radius-6: 6px;
+$radius-8: 8px;
+$radius-10: 10px;
+$radius-12: 12px;
+$radius-16: 16px;
+$radius-20: 20px;
+$radius-24: 24px;
+$radius-full: 999px;
+
+/*Media*/
+$tablet: rem(768px);
+$desktop: rem(1024px);

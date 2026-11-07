@@ -1,0 +1,126 @@
+@use 'functions' as *;
+@use 'variables' as *;
+
+@mixin flex-center($inline: false) {
+  @if $inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin x-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin y-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*Fonts*/
+@mixin text-preset-1-mobile {
+  font-weight: 700;
+  font-size: rem(40);
+  line-height: 1.36;
+  letter-spacing: 0.01em;
+}
+
+@mixin text-preset-1-regular {
+  font-weight: 700;
+  font-size: rem(24);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+@mixin text-preset-1-regular-mobile {
+  font-weight: 400;
+  font-size: rem(32px);
+  line-height: 1.36;
+  letter-spacing: 0.01em;
+}
+
+@mixin text-preset-2 {
+  font-weight: 700;
+  font-size: rem(24px);
+  line-height: 1;
+}
+
+@mixin text-preset-3 {
+  font-weight: 400;
+  font-size: rem(20px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+@mixin text-preset-3-mobile {
+  font-weight: 400;
+  font-size: rem(16px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+@mixin text-preset-3-semi {
+  font-weight: 600;
+  font-size: rem(20px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+@mixin text-preset-4 {
+  font-weight: 400;
+  font-size: rem(18px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+@mixin text-preset-5 {
+  font-weight: 400;
+  font-size: rem(16px);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+@mixin text-preset-6 {
+  font-weight: 400;
+  font-size: rem(12px);
+  line-height: 1.2;
+}
+
+/*Media*/
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}

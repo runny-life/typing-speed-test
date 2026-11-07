@@ -1,0 +1,26 @@
+@use '../helpers' as *;
+
+body {
+  min-height: 100dvh;
+  font-family: $font-family-base;
+  color: $neutral-0;
+  background-color: $neutral-900;
+}
+
+.container {
+  min-height: 100dbh;
+  max-width: calc($container-width + $container-padding-x * 2);
+  padding-top: rem(16px);
+  padding-bottom: rem(32px);
+  padding-inline: $container-padding-x;
+  margin-inline: auto;
+
+  @include tablet {
+    padding-top: rem(32px);
+    padding-bottom: rem(64px);
+  }
+
+  @include desktop {
+    padding-block: rem(32px);
+  }
+}
