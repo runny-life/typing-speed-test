@@ -1,12 +1,190 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing speed test | Frontend Mentor</title>
-  </head>
-  <body>
-    <script type="module" src="/src/scripts/app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/favicon.png"
+    sizes="32x32"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Typing Speed Test | Frontend Mentor</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header__logo">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="/icons/logo-large.svg"
+          >
+          <img
+            class="header__logo-image"
+            src="/icons/logo-small.svg"
+            alt="Typing Speed Test logo"
+            width="32"
+            height="32"
+          >
+        </picture>
+      </div>
+
+      <div class="header__personal-best">
+        <img
+          src="/icons/icon-personal-best.svg"
+          alt=""
+          width="21"
+          height="18"
+          aria-hidden="true"
+        >
+        <p class="header__personal-best-text">Personal best: <span>92 WPM</span></p>
+      </div>
+    </header>
+
+    <main class="main">
+      <h1 class="sr-only">Typing Speed Test</h1>
+
+      <section
+        class="stats"
+        aria-label="Test statistics"
+      >
+        <div class="stats__item">
+          <span class="stats__label">WPM:</span>
+          <span
+            class="stats__value"
+            id="wpm"
+          >0</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__label">Accuracy:</span>
+          <span
+            class="stats__value"
+            id="accuracy"
+          >100%</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__label">Time:</span>
+          <span
+            class="stats__value"
+            id="time"
+          >1:00</span>
+        </div>
+      </section>
+
+      <section
+        class="controls"
+        aria-label="Test controls"
+      >
+        <div class="controls__group">
+          <span class="controls__label">Difficulty:</span>
+          <div
+            class="toggle"
+            role="group"
+            aria-label="Difficulty level"
+          >
+            <button
+              class="toggle__btn toggle__btn--active"
+              data-difficulty="easy"
+            >Easy
+            </button>
+            <button
+              class="toggle__btn"
+              data-difficulty="medium"
+            >Medium
+            </button>
+            <button
+              class="toggle__btn"
+              data-difficulty="hard"
+            >Hard
+            </button>
+          </div>
+        </div>
+
+        <div class="controls__group">
+          <span class="controls__label">Mode:</span>
+          <div
+            class="toggle"
+            role="group"
+            aria-label="Test mode"
+          >
+            <button
+              class="toggle__btn toggle__btn--active"
+              data-mode="timed"
+            >Timed (60s)
+            </button>
+            <button
+              class="toggle__btn"
+              data-mode="passage"
+            >Passage
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="typing"
+        aria-label="Typing area"
+      >
+        <div
+          class="typing__text"
+          id="typing-text"
+          tabindex="0"
+        >
+          <p
+            class="typing__placeholder"
+            aria-hidden="true"
+          >
+            The archaeological expedition unearthed artifacts that complicated prevailing
+            theories about Bronze Age trade networks. Obsidian from Anatolia, lapis lazuli
+            from Afghanistan, and amber from the Baltic—all discovered in a single Mycenaean
+            tomb—suggested commercial connections far more extensive than previously
+            hypothesized.
+          </p>
+        </div>
+        <input
+          type="text"
+          id="typing-input"
+          class="typing__input"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-label="Type the passage here"
+        />
+        <div class="restart">
+          <button
+            class="restart__button"
+            id="restart-btn"
+            aria-label="Restart test"
+          >
+            Restart Test
+            <img
+              src="/icons/icon-restart.svg"
+              alt=""
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+          </button>
+        </div>
+        <div class="start">
+          <button
+            class="start__btn"
+            id="start-btn"
+          >Start Test
+          </button>
+          <p class="start__text">Or click the text and start typing</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script
+    type="module"
+    src="/src/scripts/app.js"
+  ></script>
+</body>
 </html>
