@@ -1,0 +1,30 @@
+@use '../helpers' as *;
+
+.typing {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-400;
+
+  @include tablet {
+    gap: $spacing-500;
+  }
+
+  @include desktop {
+    gap: $spacing-800;
+  }
+}
+
+.typing__text {
+  @include text-preset-1-regular-mobile;
+  max-height: rem(440px);
+  color: $neutral-500;
+  overflow-y: scroll;
+
+  @include tablet {
+    overflow-y: auto;
+  }
+}
+
+.typing__input {
+  @include visually-hidden;
+}

@@ -1,0 +1,28 @@
+@use '../helpers' as *;
+
+.restart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: rem(24px);
+  border-top: 1px solid $neutral-700;
+
+  @include desktop {
+    padding-top: rem(32px);
+  }
+}
+
+.restart__button {
+  @include text-preset-3-semi;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-125;
+  padding-inline: rem(16px);
+  padding-block: rem(10px);
+  color: $neutral-0;
+  background-color: $neutral-800;
+  border: none;
+  border-radius: $radius-12;
+}
