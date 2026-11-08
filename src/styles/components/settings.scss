@@ -1,0 +1,29 @@
+@use '../helpers' as *;
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-125;
+
+  @include tablet {
+    gap: 0;
+  }
+}
+
+.settings__group {
+  display: flex;
+  align-items: center;
+  gap: $spacing-075;
+  width: 100%;
+  padding-right: rem(16px);
+  border-right: 1px solid $neutral-700;
+}
+
+.settings__label {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}

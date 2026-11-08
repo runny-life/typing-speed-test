@@ -1,0 +1,32 @@
+@use '../helpers' as *;
+
+.toggle {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    gap: $spacing-075;
+  }
+}
+
+.toggle__btn {
+  @include text-preset-5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-125;
+  padding-inline: $spacing-125;
+  padding-block: $spacing-075;
+  color: $neutral-0;
+  background-color: $neutral-900;
+  border: 1px solid $neutral-500;
+  border-radius: $radius-8;
+  white-space: nowrap;
+
+  &.active {
+    border-color: $blue-400;
+    color: $blue-400;
+  }
+}

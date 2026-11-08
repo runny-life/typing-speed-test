@@ -90,33 +90,76 @@
               aria-label="Difficulty level"
             >
               <button
-                class="toggle__btn toggle__btn--active"
+                class="toggle__btn active"
+                type="button"
                 data-difficulty="easy"
+                aria-pressed="true"
               >Easy
               </button>
               <button
                 class="toggle__btn"
+                type="button"
                 data-difficulty="medium"
               >Medium
               </button>
               <button
                 class="toggle__btn"
+                type="button"
                 data-difficulty="hard"
               >Hard
               </button>
             </div>
-            <select
-              class="difficulty-select"
-              aria-label="Difficulty level"
-            >
-              <option
-                value="easy"
-                selected
-              >Easy
-              </option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
+            <div class="select">
+              <button class="select__button">
+                Easy
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  fill="none"
+                  viewBox="0 0 11 6"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#fff"
+                    d="M4.742 5.836.117 1.242c-.156-.125-.156-.375 0-.531L.742.117a.36.36 0 0 1 .531 0l3.75 3.688L8.743.117c.155-.156.405-.156.53 0l.625.594c.157.156.157.406 0 .531L5.273 5.836a.36.36 0 0 1-.53 0"
+                  />
+                </svg>
+              </button>
+              <div class="select__content">
+                <button
+                  class="select__item"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Easy
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Medium
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Hard
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="controls__group">
@@ -127,15 +170,62 @@
               aria-label="Test mode"
             >
               <button
-                class="toggle__btn toggle__btn--active"
+                class="toggle__btn active"
+                type="button"
                 data-mode="timed"
               >Timed (60s)
               </button>
               <button
                 class="toggle__btn"
+                type="button"
                 data-mode="passage"
               >Passage
               </button>
+            </div>
+
+            <div class="select">
+              <button
+                class="select__button"
+                type="button"
+              >
+                Timed (60s)
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  fill="none"
+                  viewBox="0 0 11 6"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#fff"
+                    d="M4.742 5.836.117 1.242c-.156-.125-.156-.375 0-.531L.742.117a.36.36 0 0 1 .531 0l3.75 3.688L8.743.117c.155-.156.405-.156.53 0l.625.594c.157.156.157.406 0 .531L5.273 5.836a.36.36 0 0 1-.53 0"
+                  />
+                </svg>
+              </button>
+              <div class="select__content">
+                <button
+                  class="select__item"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Timed (60s)
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Passage
+                </button>
+              </div>
             </div>
           </div>
         </div>

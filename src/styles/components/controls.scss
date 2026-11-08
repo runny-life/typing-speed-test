@@ -16,3 +16,19 @@
     justify-content: space-between;
   }
 }
+
+.controls__group {
+  display: flex;
+  align-items: center;
+  gap: $spacing-075;
+  width: 100%;
+  padding-left: rem(16px);
+}
+
+.controls__label {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}
