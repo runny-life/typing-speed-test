@@ -38,17 +38,42 @@ export function bindDifficultyControls() {
   });
 }
 
+export function bindModeControls() {
+  els.modeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      setMode(mode);
+    });
+  });
+}
+
 function setDifficulty(difficulty) {
-  const changed = state.difficulty !== difficulty;
+  if (state.difficulty === difficulty) return;
   state.difficulty = difficulty;
   updateDifficultyButtons();
   updateSelectLabels();
-  if (changed) resetTest();
+  resetTest();
+}
+
+function setMode(mode) {
+  if (state.mode === mode) return;
+  state.mode = mode;
+  updateModeButtons();
+  updateSelectLabels();
+  updateSelectLabels();
 }
 
 function updateDifficultyButtons() {
   els.difficultyBtns.forEach((btn) => {
     const isActive = btn.dataset.difficulty === state.difficulty;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+function updateModeButtons() {
+  els.modeBtns.forEach((btn) => {
+    const isActive = btn.dataset.mode === state.mode;
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
   });
@@ -60,10 +85,24 @@ export function bindSelectControls() {
 
   selects.forEach((select) => {
     const button = select.querySelector('.select__button');
+    const items = select.querySelectorAll('.select__item');
 
     button.addEventListener('click', (e) => {
       e.stopPropagation();
       select.classList.toggle('open');
+    });
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const value = item.textContent.toLowerCase().trim();
+        const type = select.dataset.type;
+
+        if (type === 'difficulty') {
+          setDifficulty(value);
+        } else if (type === 'mode') {
+          setMode(value.includes('timed') ? 'timed' : 'passage');
+        }
+      });
     });
   });
 
@@ -72,4 +111,40 @@ export function bindSelectControls() {
       openElement.classList.remove('open');
     });
   });
+}
+
+function updateSelectLabels() {
+  const diffSelect = document.querySelector('.select[data-type="difficulty"]');
+  const modeSelect = document.querySelector('.select[data-type="mode"]');
+
+  if (diffSelect) {
+    const label = diffSelect.querySelector('.select__label');
+
+    if (label) {
+      label.textContent = capitalize(state.difficulty);
+    }
+    diffSelect.querySelectorAll('.select__item').forEach((item) => {
+      const isActive = item.textContent.trim().toLowerCase() === state.difficulty;
+      item.setAttribute('aria-pressed', String(isActive));
+    });
+  }
+
+  if (diffSelect) {
+    const label = modeSelect.querySelector('.select__label');
+
+    if (label) {
+      label.textContent = state.mode === 'timed' ? 'Timed (60s)' : 'Passage';
+    }
+    modeSelect.querySelectorAll('.select__item').forEach((item) => {
+      const text = item.textContent.trim().toLowerCase();
+      const isActive =
+        (state.mode === 'timed' && text.includes('timed')) ||
+        (state.mode === 'passage' && text.includes('passage'));
+      item.setAttribute('aria-pressed', String(isActive));
+    });
+  }
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
