@@ -61,8 +61,30 @@ function showResults({ wpm, accuracy, previousBest, correctChars }) {
   els.resultErrorChars.textContent = String(state.errors);
 
   els.resultsModal.classList.remove('hidden');
+  els.resultModalRestartBtn.focus();
+  document.addEventListener('keydown', trapFocus);
 
   if (previousBest !== null && wpm > previousBest) {
     launchConfetti();
+  }
+}
+
+export function trapFocus(e) {
+  if (e.key !== 'Tab') return;
+
+  const focusable = els.resultsModal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+  );
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
   }
 }

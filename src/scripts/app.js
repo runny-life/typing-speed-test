@@ -12,6 +12,7 @@ import {
 import { renderText } from './components/render';
 import { bindTypingInput, startTest } from './components/typing';
 import { stopConfetti } from './components/confetti';
+import { trapFocus } from './components/result';
 
 async function init() {
   console.log('[init] app starting...');
@@ -47,6 +48,8 @@ async function init() {
     els.resultsModal.classList.add('hidden');
     els.restartCard.classList.add('hidden');
     resetTest();
+    document.removeEventListener('keydown', trapFocus);
+    els.restartBtn.focus();
   }
 
   els.restartBtn.addEventListener('click', restartTest);
