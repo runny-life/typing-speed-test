@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/typing-speed-test/favicon.png"
+    sizes="32x32"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Typing Speed Test | Frontend Mentor</title>
+  <script type="module" crossorigin src="/typing-speed-test/assets/index-ZzfVyFpd.js"></script>
+  <link rel="stylesheet" crossorigin href="/typing-speed-test/assets/index-DWeWnpvS.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header__logo">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="/typing-speed-test/icons/logo-large.svg"
+          >
+          <img
+            class="header__logo-image"
+            src="/typing-speed-test/icons/logo-small.svg"
+            alt="Typing Speed Test logo"
+            width="32"
+            height="32"
+          >
+        </picture>
+      </div>
+
+      <div class="header__personal-best">
+        <img
+          class="header__personal-best-image"
+          src="/typing-speed-test/icons/icon-personal-best.svg"
+          alt=""
+          width="21"
+          height="18"
+          aria-hidden="true"
+        >
+        <p class="header__personal-best-text">Personal best: <span id="personal-best">92 WPM</span></p>
+      </div>
+    </header>
+
+    <main class="main">
+      <h1 class="sr-only">Typing Speed Test</h1>
+
+      <section
+        class="controls"
+        aria-label="Test controls"
+      >
+        <div
+          class="stats"
+        >
+          <div class="stats__item">
+            <span class="stats__label">WPM:</span>
+            <span
+              class="stats__value"
+              id="wpm"
+            >0</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__label">Accuracy:</span>
+            <span
+              class="stats__value"
+              id="accuracy"
+            >100%</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__label">Time:</span>
+            <span
+              class="stats__value"
+              id="time"
+            >1:00</span>
+          </div>
+        </div>
+
+        <div
+          class="settings"
+        >
+          <div class="settings__group">
+            <span class="settings__label">Difficulty:</span>
+            <div
+              class="toggle"
+              role="group"
+              aria-label="Difficulty level"
+            >
+              <button
+                class="toggle__btn active"
+                type="button"
+                data-difficulty="easy"
+                aria-pressed="true"
+              >Easy
+              </button>
+              <button
+                class="toggle__btn"
+                type="button"
+                data-difficulty="medium"
+              >Medium
+              </button>
+              <button
+                class="toggle__btn"
+                type="button"
+                data-difficulty="hard"
+              >Hard
+              </button>
+            </div>
+            <div
+              class="select"
+              data-type="difficulty"
+            >
+              <button class="select__button">
+                <span class="select__label">Easy</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  fill="none"
+                  viewBox="0 0 11 6"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#fff"
+                    d="M4.742 5.836.117 1.242c-.156-.125-.156-.375 0-.531L.742.117a.36.36 0 0 1 .531 0l3.75 3.688L8.743.117c.155-.156.405-.156.53 0l.625.594c.157.156.157.406 0 .531L5.273 5.836a.36.36 0 0 1-.53 0"
+                  />
+                </svg>
+              </button>
+              <div class="select__content">
+                <button
+                  class="select__item"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Easy
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Medium
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Hard
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls__group">
+            <span class="controls__label">Mode:</span>
+            <div
+              class="toggle"
+              role="group"
+              aria-label="Test mode"
+            >
+              <button
+                class="toggle__btn active"
+                type="button"
+                data-mode="timed"
+              >Timed (60s)
+              </button>
+              <button
+                class="toggle__btn"
+                type="button"
+                data-mode="passage"
+              >Passage
+              </button>
+            </div>
+
+            <div
+              class="select"
+              data-type="mode"
+            >
+              <button
+                class="select__button"
+                type="button"
+              >
+                <span class="select__label">Timed (60s)</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  fill="none"
+                  viewBox="0 0 11 6"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#fff"
+                    d="M4.742 5.836.117 1.242c-.156-.125-.156-.375 0-.531L.742.117a.36.36 0 0 1 .531 0l3.75 3.688L8.743.117c.155-.156.405-.156.53 0l.625.594c.157.156.157.406 0 .531L5.273 5.836a.36.36 0 0 1-.53 0"
+                  />
+                </svg>
+              </button>
+              <div class="select__content">
+                <button
+                  class="select__item"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Timed (60s)
+                </button>
+                <button
+                  class="select__item"
+                  type="button"
+                >
+                  <span
+                    class="select__item-check"
+                    aria-hidden="true"
+                  ></span>
+                  Passage
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="typing"
+        aria-label="Typing area"
+      >
+        <div
+          class="typing__text"
+          id="typing-text"
+          tabindex="0"
+        >
+          <p
+            class="typing__placeholder"
+            aria-hidden="true"
+          >
+            The archaeological expedition unearthed artifacts that complicated prevailing
+            theories about Bronze Age trade networks. Obsidian from Anatolia, lapis lazuli
+            from Afghanistan, and amber from the Baltic—all discovered in a single Mycenaean
+            tomb—suggested commercial connections far more extensive than previously
+            hypothesized.
+          </p>
+        </div>
+        <input
+          type="text"
+          id="typing-input"
+          class="typing__input"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-label="Type the passage here"
+        />
+        <div class="restart hidden">
+          <button
+            class="restart__button"
+            id="restart-btn"
+            aria-label="Restart test"
+          >
+            Restart Test
+            <img
+              src="/typing-speed-test/icons/icon-restart.svg"
+              alt=""
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+          </button>
+        </div>
+        <div class="start">
+          <button
+            class="start__btn"
+            id="start-btn"
+          >Start Typing Test
+          </button>
+          <p class="start__text">Or click the text and start typing</p>
+        </div>
+      </section>
+    </main>
+    <div
+      class="modal hidden"
+      id="results-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="results-title"
+    >
+      <div class="modal__content">
+        <div class="modal__icons">
+          <img
+            class="modal__icon modal__icon--completed"
+            id="result-icon-completed"
+            src="/typing-speed-test/icons/icon-completed.svg"
+            alt=""
+            width="64"
+            height="64"
+            aria-hidden="true"
+          >
+          <img
+            class="modal__icon hidden"
+            id="result-icon-new-pb"
+            src="/typing-speed-test/icons/icon-new-pb.svg"
+            alt=""
+            width="80"
+            height="80"
+          >
+        </div>
+        <div class="modal__titles">
+          <h2
+            class="modal__title"
+            id="results-title"
+          >Test Complete!
+          </h2>
+          <p
+            class="modal__subtitle"
+            id="result-message"
+          >Solid run. Keep pushing to beat your high score.
+          </p>
+        </div>
+
+        <div class="modal__stats">
+          <div class="modal__stat">
+            <span class="modal__stat-label">WPM</span>
+            <span
+              class="modal__stat-value"
+              id="result-wpm"
+            >0</span>
+          </div>
+          <div class="modal__stat">
+            <span class="modal__stat-label">Accuracy</span>
+            <span
+              class="modal__stat-value"
+              id="result-accuracy"
+            >0%</span>
+          </div>
+          <div class="modal__stat">
+            <span class="modal__stat-label">Characters</span>
+            <span
+              class="modal__stat-value modal__stat-value--muted"
+
+            >
+                <span
+                  class="modal__chars"
+                  id="result-chars"
+                >0</span>/<span
+              class="modal__errors"
+              id="result-errors"
+            >0</span>
+              </span>
+          </div>
+        </div>
+
+        <button
+          class="modal__restart"
+          id="modal-restart-btn"
+        >Go Again
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M1.563 1.281h.949c.246 0 .422.211.422.457l-.07 3.446a8.6 8.6 0 0 1 7.277-3.868c4.816 0 8.718 3.938 8.718 8.72-.035 4.816-3.937 8.683-8.718 8.683a8.86 8.86 0 0 1-5.871-2.215.446.446 0 0 1 0-.633l.703-.703c.14-.14.386-.14.562 0 1.23 1.09 2.813 1.723 4.606 1.723A6.88 6.88 0 0 0 17.03 10c0-3.797-3.093-6.89-6.89-6.89-2.813 0-5.203 1.687-6.293 4.078l4.43-.106c.245 0 .456.176.456.422v.95c0 .245-.21.421-.421.421h-6.75a.406.406 0 0 1-.422-.422v-6.75c0-.21.175-.422.422-.422"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <canvas
+      id="confetti"
+      class="confetti"
+      aria-hidden="true"
+    ></canvas>
+  </div>
+</body>
+</html>
