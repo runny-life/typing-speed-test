@@ -1,4 +1,5 @@
 export const els = {
+  personalBest: document.getElementById('personal-best'),
   wpm: document.getElementById('wpm'),
   accuracy: document.getElementById('accuracy'),
   time: document.getElementById('time'),

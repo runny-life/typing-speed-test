@@ -1,12 +1,14 @@
 import '../styles/style.scss';
 import { state } from './components/state';
-import { els } from './components/dom';
 import { loadPassages, pickRandomPassage } from './api/passages';
+import { getPersonalBest } from './components/storage.js';
+import { els } from './components/dom';
 
 async function init() {
   console.log('[init] app starting...');
+
+  state.personalBest = getPersonalBest();
   console.log('[init] state:', state);
-  console.log('[init] els:', els);
 
   await loadPassages();
   const passage = pickRandomPassage(state.difficulty);
@@ -14,7 +16,17 @@ async function init() {
   state.passageId = passage.id;
 
   console.log('[init] selected passage:', passage.id);
-  console.log('[init] passage text:', passage.text);
+  renderPersonalBest();
+}
+
+function renderPersonalBest() {
+  if (els.personalBest === null) return;
+
+  if (state.personalBest === null) {
+    els.personalBest.textContent = '0 WPM';
+  } else {
+    els.personalBest.textContent = `${state.personalBest} WPM`;
+  }
 }
 
 if (document.readyState === 'loading') {
