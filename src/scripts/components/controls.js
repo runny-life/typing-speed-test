@@ -2,6 +2,8 @@ import { els } from './dom';
 import { state } from './state';
 import { pickRandomPassage } from '../api/passages';
 
+// Toggle
+
 export function resetTest(pickNew = true) {
   state.status = 'idle';
   state.typed = '';
@@ -37,10 +39,11 @@ export function bindDifficultyControls() {
 }
 
 function setDifficulty(difficulty) {
-  if (state.difficulty === difficulty) return;
+  const changed = state.difficulty !== difficulty;
   state.difficulty = difficulty;
   updateDifficultyButtons();
-  resetTest();
+  updateSelectLabels();
+  if (changed) resetTest();
 }
 
 function updateDifficultyButtons() {
@@ -48,5 +51,25 @@ function updateDifficultyButtons() {
     const isActive = btn.dataset.difficulty === state.difficulty;
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+//Select
+export function bindSelectControls() {
+  const selects = document.querySelectorAll('.select');
+
+  selects.forEach((select) => {
+    const button = select.querySelector('.select__button');
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      select.classList.toggle('open');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.open').forEach((openElement) => {
+      openElement.classList.remove('open');
+    });
   });
 }

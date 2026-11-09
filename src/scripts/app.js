@@ -3,7 +3,7 @@ import { state } from './components/state';
 import { loadPassages, pickRandomPassage } from './api/passages';
 import { getPersonalBest } from './components/storage';
 import { els } from './components/dom';
-import { bindDifficultyControls } from './components/controls';
+import { bindDifficultyControls, bindSelectControls } from './components/controls';
 
 async function init() {
   console.log('[init] app starting...');
@@ -19,6 +19,7 @@ async function init() {
   console.log('[init] selected passage:', passage.id);
   renderPersonalBest();
   bindDifficultyControls();
+  bindSelectControls();
 }
 
 function renderPersonalBest() {
