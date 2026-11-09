@@ -9,7 +9,7 @@ import {
   bindSelectControls,
 } from './components/controls';
 import { renderText } from './components/render';
-import { startTest } from './components/typing.js';
+import { bindTypingInput, startTest } from './components/typing.js';
 
 async function init() {
   console.log('[init] app starting...');
@@ -28,6 +28,7 @@ async function init() {
   bindModeControls();
   bindSelectControls();
   renderText();
+  bindTypingInput();
 
   els.startBtn.addEventListener('click', () => {
     startTest();
