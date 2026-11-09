@@ -291,63 +291,100 @@
           </button>
           <p class="start__text">Or click the text and start typing</p>
         </div>
-        <div
-          class="modal hidden"
-          id="results-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="results-title"
-        >
-          <div class="modal__content">
-            <img
-              class="modal__image"
-              src=""
-              alt=""
-            >
-            <h2
-              class="modal__title"
-              id="results-title"
-            >Test Complete!
-            </h2>
-
-            <div class="modal__stats">
-              <div class="modal__stat">
-                <span class="modal__stat-label">WPM</span>
-                <span
-                  class="modal__stat-value"
-                  id="result-wpm"
-                >0</span>
-              </div>
-              <div class="modal__stat">
-                <span class="modal__stat-label">Accuracy</span>
-                <span
-                  class="modal__stat-value"
-                  id="result-accuracy"
-                >0%</span>
-              </div>
-              <div class="modal__stat">
-                <span class="modal__stat-label">Characters</span>
-                <span
-                  class="modal__stat-value"
-                  id="result-chars"
-                >0/0</span>
-              </div>
-            </div>
-
-            <p
-              class="modal__message"
-              id="result-message"
-            ></p>
-
-            <button
-              class="modal__restart"
-              id="modal-restart-btn"
-            >Go Again
-            </button>
-          </div>
-        </div>
       </section>
     </main>
+    <div
+      class="modal hidden"
+      id="results-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="results-title"
+    >
+      <div class="modal__content">
+        <div class="modal__icons">
+          <img
+            class="modal__icon modal__icon--completed"
+            id="result-icon-completed"
+            src="/icons/icon-completed.svg"
+            alt=""
+            width="64"
+            height="64"
+            aria-hidden="true"
+          >
+          <img
+            class="modal__icon hidden"
+            id="result-icon-new-pb"
+            src="/icons/icon-new-pb.svg"
+            alt=""
+            width="80"
+            height="80"
+          >
+        </div>
+        <div class="modal__titles">
+          <h2
+            class="modal__title"
+            id="results-title"
+          >Test Complete!
+          </h2>
+          <p
+            class="modal__subtitle"
+            id="result-message"
+          >Solid run. Keep pushing to beat your high score.
+          </p>
+        </div>
+
+        <div class="modal__stats">
+          <div class="modal__stat">
+            <span class="modal__stat-label">WPM</span>
+            <span
+              class="modal__stat-value"
+              id="result-wpm"
+            >0</span>
+          </div>
+          <div class="modal__stat">
+            <span class="modal__stat-label">Accuracy</span>
+            <span
+              class="modal__stat-value"
+              id="result-accuracy"
+            >0%</span>
+          </div>
+          <div class="modal__stat">
+            <span class="modal__stat-label">Characters</span>
+            <span
+              class="modal__stat-value modal__stat-value--muted"
+
+            >
+                <span
+                  class="modal__chars"
+                  id="result-chars"
+                >0</span>/<span
+              class="modal__errors"
+              id="result-errors"
+            >0</span>
+              </span>
+          </div>
+        </div>
+
+        <button
+          class="modal__restart"
+          id="modal-restart-btn"
+        >Go Again
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path
+              fill="currentColor"
+              d="M1.563 1.281h.949c.246 0 .422.211.422.457l-.07 3.446a8.6 8.6 0 0 1 7.277-3.868c4.816 0 8.718 3.938 8.718 8.72-.035 4.816-3.937 8.683-8.718 8.683a8.86 8.86 0 0 1-5.871-2.215.446.446 0 0 1 0-.633l.703-.703c.14-.14.386-.14.562 0 1.23 1.09 2.813 1.723 4.606 1.723A6.88 6.88 0 0 0 17.03 10c0-3.797-3.093-6.89-6.89-6.89-2.813 0-5.203 1.687-6.293 4.078l4.43-.106c.245 0 .456.176.456.422v.95c0 .245-.21.421-.421.421h-6.75a.406.406 0 0 1-.422-.422v-6.75c0-.21.175-.422.422-.422"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
   <script
     type="module"

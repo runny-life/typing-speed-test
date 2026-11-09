@@ -2,7 +2,8 @@ import { state } from './state';
 import { els } from './dom';
 import { renderText } from './render';
 import { calcAccuracy, calcMPW, countCorrectChar } from './stats';
-import { startTimer, stopTimer } from './timer';
+import { startTimer } from './timer';
+import { finishTest } from './result';
 
 export function startTest() {
   if (state.status !== 'idle') return;
@@ -53,9 +54,7 @@ function updateCounters(oldValue, newValue) {
 
 function checkFinish() {
   if (state.typed.length >= state.passage.length) {
-    state.status = 'finished';
-    stopTimer();
-    console.log('[checkFinish] test finished');
+    finishTest();
   }
 }
 

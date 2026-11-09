@@ -1,5 +1,6 @@
 import { state } from './state';
 import { els } from './dom.js';
+import { finishTest } from './result';
 
 let intervalId = null;
 
@@ -13,8 +14,7 @@ export function startTimer() {
 
       if (state.timeLeft <= 0) {
         stopTimer();
-        state.status = 'finished';
-        console.log('[timer] time is up');
+        finishTest();
       }
     }, 1000);
   } else {

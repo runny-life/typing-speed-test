@@ -11,4 +11,13 @@ export const els = {
   startOverlay: document.querySelector('.start'),
   difficultyBtns: document.querySelectorAll('[data-difficulty]'),
   modeBtns: document.querySelectorAll('[data-mode]'),
+  resultWpm: document.getElementById('result-wpm'),
+  resultAccuracy: document.getElementById('result-accuracy'),
+  resultChars: document.getElementById('result-chars'),
+  resultErrorChars: document.getElementById('result-errors'),
+  resultMessage: document.getElementById('result-message'),
+  resultsTitle: document.getElementById('results-title'),
+  resultsModal: document.getElementById('results-modal'),
+  resultModalIconComplete: document.getElementById('result-icon-completed'),
+  resultModalIconNewBest: document.getElementById('result-icon-new-pb'),
 };

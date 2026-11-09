@@ -3,12 +3,143 @@
 .modal {
   @include flex-center;
 
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-inline: rem(16px);
   background: $neutral-900;
   z-index: 1000;
+
+  @include tablet {
+    padding-inline: rem(32px);
+  }
 
   &.hidden {
     display: none;
   }
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: rem(700px);
+  width: 100%;
+  gap: rem(24px);
+}
+
+.modal__icons {
+  @include flex-center;
+}
+
+.modal__icon {
+  &.hidden {
+    display: none;
+  }
+
+  &--completed {
+    border-radius: $radius-full;
+    fill: $neutral-900;
+    box-shadow:
+      0 0 0 15px rgba(77, 214, 123, 0.1),
+      0 0 0 8px rgba(77, 214, 123, 0.2);
+  }
+}
+
+.modal__titles {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10px);
+  padding-top: rem(16px);
+  text-align: center;
+}
+
+.modal__title {
+  @include text-preset-1-mobile;
+
+  @include tablet {
+    @include text-preset-1;
+  }
+}
+
+.modal__subtitle {
+  @include text-preset-5;
+
+  color: $neutral-400;
+}
+
+.modal__stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: rem(16px);
+  padding-bottom: rem(16px);
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(20);
+    padding-top: rem(20px);
+    padding-bottom: rem(32px);
+  }
+
+  @include desktop {
+    grid-template-columns: rem(160px) rem(160px) rem(160px);
+  }
+}
+
+.modal__stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: rem(12px);
+  padding-inline: rem(24px);
+  padding-block: rem(16px);
+  border-radius: $radius-8;
+  border: 1px solid $neutral-700;
+}
+
+#result-accuracy {
+  color: $red-500;
+
+  &.good {
+    color: $green-500;
+  }
+}
+
+.modal__stat-label {
+  @include text-preset-3;
+
+  color: $neutral-400;
+}
+
+.modal__stat-value {
+  @include text-preset-2;
+
+  &--muted {
+    color: $neutral-500;
+  }
+}
+
+.modal__chars {
+  color: $green-500;
+}
+
+.modal__errors {
+  color: $red-500;
+}
+
+.modal__restart {
+  @include text-preset-3-semi;
+  @include flex-center;
+
+  gap: rem(10px);
+  padding-inline: rem(16px);
+  padding-block: rem(10px);
+  color: $neutral-900;
+  background: $neutral-0;
+  border-radius: $radius-12;
+  border: none;
+  margin-inline: auto;
 }
