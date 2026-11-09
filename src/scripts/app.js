@@ -9,6 +9,7 @@ import {
   bindSelectControls,
 } from './components/controls';
 import { renderText } from './components/render';
+import { startTest } from './components/typing.js';
 
 async function init() {
   console.log('[init] app starting...');
@@ -27,6 +28,23 @@ async function init() {
   bindModeControls();
   bindSelectControls();
   renderText();
+
+  els.startBtn.addEventListener('click', () => {
+    startTest();
+  });
+
+  els.startOverlay.addEventListener('click', (e) => {
+    if (e.target.closest('.start__btn')) return;
+    startTest();
+  });
+
+  els.typingText.addEventListener('click', () => {
+    if (state.status === 'idle') {
+      startTest();
+    } else {
+      els.typingInput.focus();
+    }
+  });
 }
 
 function renderPersonalBest() {

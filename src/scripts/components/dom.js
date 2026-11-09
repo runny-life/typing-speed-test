@@ -6,6 +6,7 @@ export const els = {
   typingText: document.getElementById('typing-text'),
   typingInput: document.getElementById('typing-input'),
   startBtn: document.getElementById('start-btn'),
+  restartCard: document.querySelector('.restart'),
   restartBtn: document.getElementById('restart-btn'),
   startOverlay: document.querySelector('.start'),
   difficultyBtns: document.querySelectorAll('[data-difficulty]'),

@@ -1,14 +1,14 @@
 @use '../helpers' as *;
 
 .restart {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding-top: rem(24px);
   border-top: 1px solid $neutral-700;
 
-  &.active {
-    display: flex;
+  &.hidden {
+    display: none;
   }
 
   @include desktop {
