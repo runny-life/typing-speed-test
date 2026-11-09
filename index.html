@@ -13,7 +13,7 @@
     content="width=device-width, initial-scale=1.0"
   />
   <title>Typing Speed Test | Frontend Mentor</title>
-  <script type="module" crossorigin src="/typing-speed-test/assets/index-CzxVr_KY.js"></script>
+  <script type="module" crossorigin src="/typing-speed-test/assets/index-Bk097-rD.js"></script>
   <link rel="stylesheet" crossorigin href="/typing-speed-test/assets/index-DAUscr5I.css">
 </head>
 <body>
@@ -54,6 +54,8 @@
       <section
         class="controls"
         aria-label="Test controls"
+        aria-live="polite"
+        aria-atomic="true"
       >
         <div
           class="stats"
@@ -114,8 +116,13 @@
             <div
               class="select"
               data-type="difficulty"
+
             >
-              <button class="select__button">
+              <button
+                class="select__button"
+                aria-expanded="false"
+                aria-controls="difficulty-list"
+              >
                 <span class="select__label">Easy</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,11 +138,16 @@
                   />
                 </svg>
               </button>
-              <div class="select__content">
+              <div
+                class="select__content"
+                id="difficulty-list"
+                role="listbox"
+              >
                 <button
                   class="select__item"
                   type="button"
-                  aria-pressed="true"
+                  role="option"
+                  aria-selected="true"
                 >
                   <span
                     class="select__item-check"
@@ -146,6 +158,8 @@
                 <button
                   class="select__item"
                   type="button"
+                  role="option"
+                  aria-selected="false"
                 >
                   <span
                     class="select__item-check"
@@ -156,6 +170,8 @@
                 <button
                   class="select__item"
                   type="button"
+                  role="option"
+                  aria-selected="false"
                 >
                   <span
                     class="select__item-check"
@@ -195,6 +211,8 @@
               <button
                 class="select__button"
                 type="button"
+                aria-expanded="false"
+                aria-controls="mode-list"
               >
                 <span class="select__label">Timed (60s)</span>
                 <svg
@@ -211,11 +229,16 @@
                   />
                 </svg>
               </button>
-              <div class="select__content">
+              <div
+                class="select__content"
+                id="mode-list"
+                role="listbox"
+              >
                 <button
                   class="select__item"
                   type="button"
-                  aria-pressed="true"
+                  role="option"
+                  aria-selected="true"
                 >
                   <span
                     class="select__item-check"
@@ -226,6 +249,8 @@
                 <button
                   class="select__item"
                   type="button"
+                  role="option"
+                  aria-selected="false"
                 >
                   <span
                     class="select__item-check"
