@@ -29,4 +29,14 @@
   background-color: $neutral-800;
   border: none;
   border-radius: $radius-12;
+  transition: opacity 0.2s ease;
+
+  @include hover {
+    opacity: 0.9;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $blue-400;
+    outline-offset: 4px;
+  }
 }

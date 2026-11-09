@@ -45,6 +45,7 @@ async function init() {
   function restartTest() {
     stopConfetti();
     els.resultsModal.classList.add('hidden');
+    els.restartCard.classList.add('hidden');
     resetTest();
   }
 

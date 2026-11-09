@@ -25,6 +25,19 @@
   border-radius: $radius-8;
   white-space: nowrap;
 
+  @include hover {
+    color: $blue-400;
+    border-color: $blue-400;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $blue-400;
+    outline-offset: 4px;
+  }
+
   &.active {
     border-color: $blue-400;
     color: $blue-400;
