@@ -7,6 +7,10 @@ body {
   background-color: $neutral-900;
 }
 
+button {
+  cursor: pointer;
+}
+
 .main {
   display: flex;
   flex-direction: column;
