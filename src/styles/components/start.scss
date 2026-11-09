@@ -1,0 +1,32 @@
+@use '../helpers' as *;
+
+.start {
+  @include abs-center;
+
+  position: absolute;
+  width: 105%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-250;
+  background: rgba(18, 18, 18, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.start__btn {
+  @include text-preset-3-semi;
+
+  padding-inline: $spacing-300;
+  padding-block: $spacing-200;
+  color: $neutral-0;
+  background-color: $blue-600;
+  border: none;
+  border-radius: $radius-12;
+}
+
+.start__text {
+  @include text-preset-3-semi;
+}

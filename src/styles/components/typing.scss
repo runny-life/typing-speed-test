@@ -1,6 +1,7 @@
 @use '../helpers' as *;
 
 .typing {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: $spacing-400;
@@ -16,9 +17,11 @@
 
 .typing__text {
   @include text-preset-1-regular-mobile;
+
   max-height: rem(440px);
   color: $neutral-500;
   overflow-y: scroll;
+  scrollbar-width: none;
 
   @include tablet {
     overflow-y: auto;
