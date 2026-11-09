@@ -1,9 +1,9 @@
-// results.js
-import { state } from './state.js';
-import { els } from './dom.js';
-import { stopTimer } from './timer.js';
-import { calcAccuracy, calcMPW, countCorrectChar } from './stats.js';
-import { getPersonalBest, savePersonalBest } from './storage.js';
+import { state } from './state';
+import { els } from './dom';
+import { stopTimer } from './timer';
+import { calcAccuracy, calcMPW, countCorrectChar } from './stats';
+import { getPersonalBest, savePersonalBest } from './storage';
+import { launchConfetti } from './confetti';
 
 export function finishTest() {
   state.status = 'finished';
@@ -61,4 +61,8 @@ function showResults({ wpm, accuracy, previousBest, correctChars }) {
   els.resultErrorChars.textContent = String(state.errors);
 
   els.resultsModal.classList.remove('hidden');
+
+  if (previousBest !== null && wpm > previousBest) {
+    launchConfetti();
+  }
 }

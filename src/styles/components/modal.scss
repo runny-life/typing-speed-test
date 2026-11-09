@@ -10,7 +10,7 @@
   bottom: 0;
   padding-inline: rem(16px);
   background: $neutral-900;
-  z-index: 1000;
+  z-index: 200;
 
   @include tablet {
     padding-inline: rem(32px);

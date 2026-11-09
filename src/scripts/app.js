@@ -11,6 +11,7 @@ import {
 } from './components/controls';
 import { renderText } from './components/render';
 import { bindTypingInput, startTest } from './components/typing';
+import { stopConfetti } from './components/confetti';
 
 async function init() {
   console.log('[init] app starting...');
@@ -42,6 +43,7 @@ async function init() {
   }
 
   function restartTest() {
+    stopConfetti();
     els.resultsModal.classList.add('hidden');
     resetTest();
   }
