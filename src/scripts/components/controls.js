@@ -2,10 +2,13 @@ import { els } from './dom';
 import { state } from './state';
 import { pickRandomPassage } from '../api/passages';
 import { renderText } from './render';
+import { stopTimer } from './timer';
 
 // Toggle
 
 export function resetTest(pickNew = true) {
+  stopTimer();
+
   state.status = 'idle';
   state.typed = '';
   state.startTime = null;
@@ -131,11 +134,12 @@ function updateSelectLabels() {
     });
   }
 
-  if (diffSelect) {
+  if (modeSelect) {
     const label = modeSelect.querySelector('.select__label');
 
     if (label) {
       label.textContent = state.mode === 'timed' ? 'Timed (60s)' : 'Passage';
+      els.time.textContent = state.mode === 'timed' ? '1:00' : '0:00';
     }
     modeSelect.querySelectorAll('.select__item').forEach((item) => {
       const text = item.textContent.trim().toLowerCase();

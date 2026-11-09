@@ -6,7 +6,8 @@ export const state = {
   typed: '',
   status: 'idle', // 'idle' | 'running' | 'finished'
   startTime: null,
-  timeLeft: 0,
+  timeLeft: 60,
+  elapsed: 0,
   totalKeystrokes: 0,
   errors: 0,
   personalBest: null, // 'number' | 'null'

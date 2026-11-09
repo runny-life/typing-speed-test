@@ -1,6 +1,8 @@
 import { state } from './state';
 import { els } from './dom';
 import { renderText } from './render';
+import { calcAccuracy, calcMPW, countCorrectChar } from './stats';
+import { startTimer, stopTimer } from './timer';
 
 export function startTest() {
   if (state.status !== 'idle') return;
@@ -11,6 +13,7 @@ export function startTest() {
   els.startOverlay.classList.add('hidden');
   els.typingInput.focus();
   renderText();
+  startTimer();
   els.restartCard.classList.remove('hidden');
 
   console.log('[startTest] timer would start here');
@@ -29,7 +32,7 @@ function handleInput() {
   updateCounters(oldValue, newValue);
   state.typed = newValue;
   renderText();
-  // updateStats();
+  updateStats();
   checkFinish();
 }
 
@@ -51,6 +54,17 @@ function updateCounters(oldValue, newValue) {
 function checkFinish() {
   if (state.typed.length >= state.passage.length) {
     state.status = 'finished';
+    stopTimer();
     console.log('[checkFinish] test finished');
   }
+}
+
+function updateStats() {
+  const elapseMs = Date.now() - state.startTime;
+  const correctChars = countCorrectChar();
+  const wpm = calcMPW(correctChars, elapseMs);
+  const accuracy = calcAccuracy(state.totalKeystrokes, state.errors);
+
+  els.wpm.textContent = String(wpm);
+  els.accuracy.textContent = `${accuracy}%`;
 }
