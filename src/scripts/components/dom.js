@@ -20,4 +20,5 @@ export const els = {
   resultsModal: document.getElementById('results-modal'),
   resultModalIconComplete: document.getElementById('result-icon-completed'),
   resultModalIconNewBest: document.getElementById('result-icon-new-pb'),
+  resultModalRestartBtn: document.getElementById('modal-restart-btn'),
 };

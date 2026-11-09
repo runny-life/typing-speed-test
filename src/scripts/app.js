@@ -7,6 +7,7 @@ import {
   bindDifficultyControls,
   bindModeControls,
   bindSelectControls,
+  resetTest,
 } from './components/controls';
 import { renderText } from './components/render';
 import { bindTypingInput, startTest } from './components/typing';
@@ -30,6 +31,24 @@ async function init() {
   renderText();
   bindTypingInput();
 
+  function renderPersonalBest() {
+    if (els.personalBest === null) return;
+
+    if (state.personalBest === null) {
+      els.personalBest.textContent = '0 WPM';
+    } else {
+      els.personalBest.textContent = `${state.personalBest} WPM`;
+    }
+  }
+
+  function restartTest() {
+    els.resultsModal.classList.add('hidden');
+    resetTest();
+  }
+
+  els.restartBtn.addEventListener('click', restartTest);
+  els.resultModalRestartBtn.addEventListener('click', restartTest);
+
   els.startBtn.addEventListener('click', () => {
     startTest();
   });
@@ -46,16 +65,6 @@ async function init() {
       els.typingInput.focus();
     }
   });
-}
-
-function renderPersonalBest() {
-  if (els.personalBest === null) return;
-
-  if (state.personalBest === null) {
-    els.personalBest.textContent = '0 WPM';
-  } else {
-    els.personalBest.textContent = `${state.personalBest} WPM`;
-  }
 }
 
 if (document.readyState === 'loading') {
