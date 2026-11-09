@@ -1,0 +1,14 @@
+@use '../helpers' as *;
+
+.modal {
+  @include flex-center;
+
+  position: absolute;
+  inset: 0;
+  background: $neutral-900;
+  z-index: 1000;
+
+  &.hidden {
+    display: none;
+  }
+}

@@ -7,6 +7,10 @@
   padding-bottom: $spacing-200;
   border-bottom: 1px solid $neutral-700;
 
+  &.hidden {
+    display: none;
+  }
+
   @include tablet {
     gap: $spacing-250;
   }

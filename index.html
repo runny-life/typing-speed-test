@@ -291,6 +291,61 @@
           </button>
           <p class="start__text">Or click the text and start typing</p>
         </div>
+        <div
+          class="modal hidden"
+          id="results-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="results-title"
+        >
+          <div class="modal__content">
+            <img
+              class="modal__image"
+              src=""
+              alt=""
+            >
+            <h2
+              class="modal__title"
+              id="results-title"
+            >Test Complete!
+            </h2>
+
+            <div class="modal__stats">
+              <div class="modal__stat">
+                <span class="modal__stat-label">WPM</span>
+                <span
+                  class="modal__stat-value"
+                  id="result-wpm"
+                >0</span>
+              </div>
+              <div class="modal__stat">
+                <span class="modal__stat-label">Accuracy</span>
+                <span
+                  class="modal__stat-value"
+                  id="result-accuracy"
+                >0%</span>
+              </div>
+              <div class="modal__stat">
+                <span class="modal__stat-label">Characters</span>
+                <span
+                  class="modal__stat-value"
+                  id="result-chars"
+                >0/0</span>
+              </div>
+            </div>
+
+            <p
+              class="modal__message"
+              id="result-message"
+            ></p>
+
+            <button
+              class="modal__restart"
+              id="modal-restart-btn"
+            >Go Again
+            </button>
+          </div>
+        </div>
       </section>
     </main>
   </div>
