@@ -8,9 +8,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "formatter": "npx prettier . --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "3.9.10",
