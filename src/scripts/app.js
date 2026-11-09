@@ -8,6 +8,7 @@ import {
   bindModeControls,
   bindSelectControls,
 } from './components/controls';
+import { renderText } from './components/render';
 
 async function init() {
   console.log('[init] app starting...');
@@ -25,6 +26,7 @@ async function init() {
   bindDifficultyControls();
   bindModeControls();
   bindSelectControls();
+  renderText();
 }
 
 function renderPersonalBest() {

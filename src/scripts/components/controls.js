@@ -1,6 +1,7 @@
 import { els } from './dom';
 import { state } from './state';
 import { pickRandomPassage } from '../api/passages';
+import { renderText } from './render';
 
 // Toggle
 
@@ -24,6 +25,7 @@ export function resetTest(pickNew = true) {
   els.startOverlay.classList.remove('hidden');
   console.log('[resetTest] would render text:', state.passage.slice(0, 40) + '...');
 
+  renderText();
   els.wpm.textContent = '0';
   els.accuracy.textContent = '100%';
   els.time.textContent = state.mode === 'timed' ? '1:00' : '0:00';
